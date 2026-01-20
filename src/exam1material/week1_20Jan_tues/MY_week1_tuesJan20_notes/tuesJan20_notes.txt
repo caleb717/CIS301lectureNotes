@@ -51,6 +51,7 @@ Note that the premises might make no sense!
 
 Premise 1: If a person wears a red shirt,
     then they don't like pizza.
+(Sometimes the premises don't make sense but we are assuming they are true)
 
 Premise 2: Fred is wearing a red shirt.
 
@@ -59,10 +60,12 @@ Conclusion: Fred doesn't like pizza.
 
 
 --> Is this a valid argument? 
+Yes, because of our first premise, assuming that Fred is a person
 
 
 
 (is there a hidden assumption we're making about Fred?)
+The fact that Fred is a person
 
 
 
@@ -78,16 +81,16 @@ I order fries or I order chips.
 
 
 
-- in English, how do we interpret "or"? 
+- in English, how do we interpret "or"? exclusive
 
 
 
-- in programming? 
+- in programming? || means inclusive
 
 
 
 
-"Or" in THIS class: 
+"Or" in THIS class: assume it's inclusive
 
 
 
@@ -99,7 +102,7 @@ Premise 1: I'll fold the laundry or I'll do the dishes.
 Premise 2: I don't fold the laundry.
 
 --> What can I conclude? 
-
+I do the dishes
 
 
 
@@ -113,7 +116,7 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude? x has to be >= 10 (because num is not < 4)
 
 
 
@@ -122,8 +125,8 @@ Suppose we know "statement" is executed
 /////////////////////////////////////////////////////////
 
 x = 9;
-if (num < 4 || x >= 10) {
-    if (num > 2) {
+if (num < 4 || x >= 10) {     (from this we know that num < 4 bcause x isn't >= 10)
+    if (num > 2) {            (from this we know that num is greater than 2)
         statement;
     }
 }
@@ -131,7 +134,10 @@ if (num < 4 || x >= 10) {
 
 
 Suppose we know "statement" is executed
---> What can we conclude? 
+--> What can we conclude?
+both conditions must be true
+so, num is equal to 3
+assuming num is an integer
 
 
 
@@ -143,7 +149,7 @@ Suppose we know "statement" is executed
 What rule are we seeing with an "or" statement,
 where we know that one of the statements is NOT true?
 
-
+The other side is true
 
 
 
@@ -155,13 +161,15 @@ If it is raining, then I will get wet.
 It is raining.
 
 --> What can I conclude? 
-
+you will get wet
 
 
 
 How to write with -> symbol?
-    p:
-    q: 
+    p: It is raining
+    q: I will get wet
+
+    p -> q
 
 
 ////////////////////////////////////////////////////////
@@ -170,7 +178,7 @@ When we have an "if/then" statement,
 and we know that the "if" part is true?
 
     ...what can we always conclude?
-
+        The "then" part is also true
 
 
 
@@ -181,6 +189,9 @@ If I don't hear my alarm, then I will be late for class.
 I am late for class.
 
 --> What can I conclude? 
+Nothingggg
+
+The promise only goes in one direction, not both
 
 
 
@@ -193,9 +204,9 @@ If I don't hear my alarm, then I will be late for class.
 I hear my alarm.
 
 --> What can I conclude? 
+Still nothing
 
-
-
+Could turn off alarm after hearing it, etc.
 
 
 
@@ -207,13 +218,14 @@ If I don't hear my alarm, then I will be late for class.
 I'm not late for class.
 
 --> What can I conclude? 
+I heard my alarm
 
-
-
+Hearing your alarm is either true or false, so if you're not late then you must have heard your alarm
 
 
 is equivalent to (called the contrapositive):
 
+If p then q        is equivlent to      If not q then not p
 
 
 
@@ -243,6 +255,8 @@ if (num < 4 || x >= 10) {
 }
 
 --> suppose y is 17 here. What do we know?
+No, we are given no premises, y could have already been y=17
+No conclusion
 
 
 
@@ -255,6 +269,8 @@ if (num < 4 || x >= 10) {
 }
 
 --> suppose y is 17 here. Can we conclude anything now?
+Now we know that either num < 4 orrr x >=10
+We know for sure that y changed values
 
 
 
@@ -268,8 +284,13 @@ if (num < 4 || x >= 10) {
 }
 
 --> suppose y is NOT 17 here. What do we know?
+num < 4 || x >= 10 is all false, meaning both sides would have to be false
+num >= 4 && x < 10
 
-
+Negating the or statement is called "DeMogan's Law"
+if (!(num < 4 || x >= 10))
+equivalent
+num >= 4 && x < 10
 
 ///////////////////////////////////////////////////////
 
@@ -294,8 +315,8 @@ Knights ALWAYS tell the truth, and knaves ALWAYS lie.
 
 Who can say, "I'm a knave"?  
 
-Can a knight? 
-Can a knave? 
+Can a knight? No, would be a lie
+Can a knave? No, that would be a truth
 
 
 
@@ -309,9 +330,12 @@ Eve says, "I am a knave or Fred is a knight."
 
 What are Eve and Fred? 
 
+Suppose Eve is a knight (possible if Fred is a knight)
+Suppose Eve is a knave  (it would make the first portion of true, thus her whole statement true, which isn't possible for knave)
+So, they must both be knights
 
 
-(what does the "or" mean?) 
+(what does the "or" mean?)  inclusive or
 
 
 
@@ -324,13 +348,17 @@ You see two different inhabitants, Ava and Bob.
 Ava says that Bob is a knave.
 Bob says, "Neither Ava nor I are knaves."
 
+Bob: NOT(va is knaave or I'm Knave)
+    equivalent: Ava not a knave AND I'm not a knave
+    equivalent: Ava AND I a Knight
 
 Rewrite Bob: 
+    if Bob is a knight, is it possible that Ava is a knave?
 
 
 
 What are Ava and Bob? 
-
+Ava is a Knight, Bob is a Knave 
 
 
 
