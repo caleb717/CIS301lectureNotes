@@ -44,11 +44,13 @@ else {
 }
 
 
+--> is it possible for "statements2" to execute?
 
---> is it possible for "statements2" to execute?7
+Know, (x < 3 || y > 4) is false
+ so (x >= 3 && y <= 4),
+ also (x < 5 && y == 7) is true [both sides need to be true]
 
-
-
+So not possible because y can't be less than or equal to 4 while ALSO equaling 7.
 
 ////////////////////////////////////////////////////////
 
@@ -56,8 +58,6 @@ More with knights and knaves.
 
 knights: each full statement that they make is true
 knave: each full statement must be false
-
-
 
 
 You meet three inhabitants: Sarah, Bill and Mae.
@@ -69,11 +69,20 @@ Mae tells you, "Bill would tell you that I am a knave."
 What types are Sarah, Bill, and Mae?
 
 
-(How might we simplify everything?)
+(How might we simplify everything?) Less confusing way, rewritten
 
+Sarah says Bill is a Knight
+Bill says Mae is a knight
+Mae says, Bill would say I'm a knave
 
-    
+Now Testing
+Suppose
+Sarah is a knight, so Bill = knight, so Mae = knight, [can't be true because of the last statement]
 
+Sarah is a knave, so Bill = knave, so Mae = knave. Makes it TRUE when you compare it to last statement
+Bill would lie and say Bill is a knight, but Mae lies, it's like a double negative
+
+All 3 are knaves
 
 ////////////////////////////////////
 
@@ -88,7 +97,8 @@ Lion says: "Yesterday was one of my lying days."
 Unicorn says: "Yesterday was one of my lying days, too."
 
 What day is it?
-
+Thursday, Lion is telling the truth that he lied wednesday, Unicorn is lying (which he is supposed to do) that he
+lied yesterday
 
 
 ////////////////////////////////
@@ -107,20 +117,13 @@ The first one says: "I'm Tweedledum."
 The second one says: "I'm Tweedledee."
 
 Which is which? What day is it?
-
-
-
-
-
+Has to be Sunday, every other day they would say the say the same name, also they are who they say.
 
 
 
 //////////////////////////////////
 
 In-class quiz
-
-
-
 
 
 //////////////////////////////////
@@ -137,10 +140,15 @@ You don't know what day it is, but are sure that it isn’t
 The first one says: "Tweedledee owns the rattle."
 The second one says: "I'm Tweedledee!"
 
-Who gets the rattle?
+Who gets the rattle? The first one
+
+Supopsing first is truth, then rattle goes to dee. Second twin must be lying, so second is dum. That means first is dee and 
+he gets the rattle
+
+Supposing second is lie (dum), then rattle goes to dum. Second must be truth, se second is dee. Rattles goes to first, dee.
 
 Who is who?
-
+Not enough information
 
 ///////////////////////////////////////////
 
@@ -156,11 +164,15 @@ Gold casket: "The portrait is in this casket."
 Silver casket: "The portrait is not in this casket."
 Lead casket: "The portrait is not in the gold casket."
 
-Where is the portrait?
+Options: All are false; One is true, two is false
 
+Suppose portrait in:
+Gold: Gold - true, silver - true, lead - false (too many trues)
+Silver: Gold - false, silver - false, lead - true (One true, what we need)
+Lead: Gold - false, silver - true, lead - true (too many trues)
 
-
-
+Where is the portrait? 
+Silver casket
 
 
 ///////////////////////////////////
@@ -183,21 +195,19 @@ Cheryl privately tells Albert her birthday month.
 Cheryl privately tells Bernard her birthday day (number).
     (14-19)
 
-
 Albert says: "I don't know when Cheryl's birthday is,
     but I know Bernard doesn't know too."
 
 Bernard says: "At first I didn't know when Cheryl's
     birthday is, but now I do."
 
-
 Albert says: "Then I also know when Cheryl's birthday is."
 
 
 When is it?
+July 16
 
-
-
+(Not even going to try to explain this one)
 
 ///////////////////////////////////
 
@@ -217,7 +227,7 @@ Basic operations:
 
 
 Basic logic gates (draw on board)
-
+    AND, OR, NOT
 
 gates still used to design circuits
 
@@ -236,28 +246,28 @@ AND:
 
 p q  #  p ∧ q
 --------------
-T T  #    
-T F  #    
-F T  #     
-F F  #    
+T T  #  T  
+T F  #  F  
+F T  #  F   
+F F  #  F  
 
 
 OR:
 
 p q  #  p ∨ q
 --------------
-T T  #    
-T F  #    
-F T  #    
-F F  #    
+T T  #   T 
+T F  #   T 
+F T  #   T 
+F F  #   F 
 
 
 NOT:
 
 p  # ¬p
 --------
-T  # 
-F  # 
+T  # F
+F  # T
 
 ////////////////////////////////////////////////
 
@@ -275,16 +285,16 @@ Otherwise we have not.
 
 p q  #  p → q
 --------------
-T T  #    
-T F  #      
-F T  #    
-F F  #     
+T T  #   T 
+T F  #   F   
+F T  #   T 
+F F  #   T  
 
 /////////////////////////////////////////
 
 How does the implies operator relate to programming?
 
-
+If/then statements
 
 //////////////////////////////////////////
 
@@ -330,15 +340,15 @@ Consider ¬p ∨ q ∧ r.
 
 Order of operations
 
-In math?
-
+In math? PEMDAS (), exponent, multiply/divide, add/subtact
 
 
 
 For logic statements:
 
 From highest (happens first) to lowest (happens last) precedence:
-
+(), NOT, AND, OR, IMPLIES
+PNAOP
 
 ////////////////////////////////////////////////
 
@@ -348,7 +358,7 @@ Given this statement:
 
 Add () to show the order of operations.
 
-
+(¬p) ∨ (q ∧ r)
 
 
 Evaluate the above statement using these
@@ -358,7 +368,9 @@ p is T
 q is F
 r is F
 
-
+(¬p) ∨ (q ∧ r)
+(F) ∨ (F)
+Output: False
 
 ///////////////////////////////////////////
 
