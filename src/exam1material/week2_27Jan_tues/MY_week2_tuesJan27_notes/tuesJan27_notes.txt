@@ -324,22 +324,23 @@ Propositional logic.
 Which ones are propositions?
 
 Today is Thursday.
+Yes
 
 
 What time is it?
-
+NO
 
 x == 2
-
+YES
 
 Pigs can fly.
-
+YES
 
 Drive carefully.
-
+NO
 
 y <= 4
-
+YES
 
 
 ////////////////////////////////////////
@@ -357,21 +358,21 @@ Suppose we have these propositional atoms:
 
 How would we express these as English sentences?
 
-    ¬p:
+    ¬p: It is not below freezing
 
 
-    p ∧ q:
+    p ∧ q: It is below freezing and snowing
 
 
-    p → q :
+    p → q : If it is below freezing, then I promise it is snowing
 
 
-    ¬p → ¬q:
+    ¬p → ¬q: If if is not below freezing, then it is not snowing  (Not the same statement as above, not equivalent)
 
 
-    r ∨ s:
+    r ∨ s: y <= 4 || x ==2
 
-    ¬r:
+    ¬r: y > 4
 
 ////////////////////////
 
