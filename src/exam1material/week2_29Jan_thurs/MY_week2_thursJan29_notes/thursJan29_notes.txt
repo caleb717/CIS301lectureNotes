@@ -33,9 +33,12 @@ p OR q AND NOT p
 Propositional logic.
 
 --> what are propositional atoms?
+Smallest pieces of a statement thata can be TRUE or FALSE
+Our variables
 
 --> what are propositions?
-
+A Statement that can be true/FALSE
+combination of propositional atoms and logical operators
 
 
 
@@ -48,12 +51,11 @@ z != 7 && str.contains(sub)
 
 --> what are the propositional atoms?
 
-
-
-
+p: z == 7
+q: str.contains(sub)
 
 --> express in propositional logic
-
+!p & q
 
 ////////////
 ∧ ∨ ¬ →
@@ -64,20 +66,28 @@ Example:
 You can't enroll for the course if you haven't taken 
 the prerequisite.
 
+Rewritten as if/then
+IF you haven't tken the prerequisite or the course is full, THEN I promise the course is full
 
---> what are the propositional atoms?
-
+--> what are the propositional atoms?  (LEAVE OUT THE NOTS)
+p: You can enroll for the course
+q: You have taken the prerequisite
+r: The course is full
 
 
 --> translate to propositional logic:
-
+!q | r -> !p
 
 
 really saying?
+If you haven't taken the prerequisite, or the course is full, then you can't enroll
 
 
+What is the *contrapositive* of our statement? (FLIP THEN NEGATE)
+p -> q is same as !q -> !p
 
-What is the *contrapositive* of our statement?
+contrapositve: p -> !(!q | r)   When you negate an OR it flips to AND and flips both parts
+               p -> q & !r
 
 
 
@@ -96,50 +106,75 @@ if (x <= 2 || y >= 0) {
 }
 
 Propositional atoms?
+If all conditions happened, answer will be 25
 
+p: x <= 2
+q: y >= 0
+r: z == 17
+s: answer == 25
+
+p | q & !r -> s (WRONG BECAUSE ORDER OF OPERATIONS)
+
+(p | q) & !r -> s
 
 
 
 Translation? (if ... then ...)
 
 
-
-
-
 //////////////////////////////////
 
 Consider these two statements:
 
+p: I am at least 16
+p: I can drive a car
+
 1) If I am at least 16 years old, then I can drive a car.
 
+p -> q
 
+only false when p is true and q is false
 
 2) I'm not at least 16 years old or I can drive a car.
 
+!p | q
 
-
+only false when both sides of OR are false
+    (only when p is true and q is false)
 
 --> are they saying the same thing?
 
 
-
-
 --> could we PROVE it? (equiv1.logika, equiv2.logika)
-
+Compare truth tables for both statements
+After comparing they do have the exact same truth table for each assignment
 
 
 //////////////////////////////////
 
 Consider these two statements:
 
+p: I am at least 16 years old
+q: I can drive a car
+
 1) If I am at least 16 years old, then I can drive a car.
+
+p -> q
+
 
 2) If I can drive a car, then I am at least 16 years old.
 
+q -> p
 
 --> are they saying the same thing?
+N
+p = F, q = T 
+Statement 1: true
+Statement 2: false 
 
 --> could we PROVE our answer?
+Again compare truth tables, just need to find ONE truth assignment that
+leads to different outputs
 
 
 //////////////////////////////////
@@ -151,7 +186,6 @@ DeMorgan's Laws.
 
 
 
-
 if (a == 4 || a == 5) {
     statements
 }
@@ -159,7 +193,9 @@ if (a == 4 || a == 5) {
 How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
+if (!(a == 4 || a == 5))   AGAIN NEGATE BOTH SIDES AND FLIP ORS TO ANDS
 
+if (a != 4 && a != 5)
 
 
 
@@ -173,7 +209,7 @@ How could we express the NEGATION
 (i.e., what condition would be true for the "else")?
 
 
-
+if ( a != 4 || b != 5)
 
 
 
@@ -181,13 +217,13 @@ How could we express the NEGATION
 
 DeMorgan's laws in propositional logic:
 
-¬(p ∨ q) is equivalent to... 
+¬(p ∨ q) is equivalent to... !p && !q
 
-¬(p ∧ q) is equivalent to...
+¬(p ∧ q) is equivalent to...  !p || !q
 
 
 --> how can we prove the first of DeMorgan's laws?
-
+Compare truth tables and see if all statements have same outputs
 
 
 

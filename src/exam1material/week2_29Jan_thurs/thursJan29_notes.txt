@@ -188,7 +188,7 @@ DeMorgan's laws in propositional logic:
 
 --> how can we prove the first of DeMorgan's laws?
 
-
+ALL Have the same truth tables
 
 
 
@@ -204,6 +204,8 @@ if (Character.isDigit(letter) || num < 10) {
 --> how would we negate it without using a ! operator?
     also no extra ()
 
+(!Character.isDigit(letter) && num >= 10)
+(Character.isDigit(letter) == false && num >= 10)
 
 
 
@@ -215,6 +217,9 @@ And one more. Negate this one:
 if ((y >= 4 || num != 14) && x > 0) {
     statements
 }
+
+(!(y >= 4 || num != 14) || !(x > 0))
+((y < 4 && num = 14) || x <= 0)
 
 
 
