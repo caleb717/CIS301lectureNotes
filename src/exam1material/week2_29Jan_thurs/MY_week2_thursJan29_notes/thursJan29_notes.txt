@@ -3,6 +3,7 @@ HW 2 due Tuesday, February 3
 --> will be creating 2 image files
 
 --> make sure those are added to your git repository!
+Why didn't that work?
 
 ////////////////////////////
 
