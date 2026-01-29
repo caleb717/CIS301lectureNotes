@@ -291,6 +291,7 @@ AND: &
 OR: |
 NOT: !
 IMPLIES: ->:
+->:
 
 alignment matters!
 
