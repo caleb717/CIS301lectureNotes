@@ -272,14 +272,22 @@ p → q ≡  ¬p ∨ q                     (can turn implies into an or)
 
 
 associative laws
-    in math?
-    for ∧, ∨, →?
+    in math? (1 + 2) + 3 is equivalent to 1 + (2 + 3)  (CAN'T DO WITH SUBTRACTION)
+    for ∧, ∨, →?    &, || are associative.  
+    
+    -> is not
+        1) (p -> q) -> r
+        2)  p -> (q -> r)  DOESN't WORK
 
+        p = F
+        q = T/F
+        r = F
 
-
+        makes first statement false, second statement true
+   
 commutative laws 
-    in math?
-    for ∧, ∨, →?
+    in math?   1 + 2 is equivalent to 2 + 1   (AGAIN, NOT WITH SUBTRACTION)
+    for ∧, ∨, →?  && and || you can, not with ->
 
 
 
@@ -294,12 +302,12 @@ commutative laws
 Summary of equivalence.
 
 How do we prove two statements ARE equivalent?
-
-
+Complete two truth tables and show that they have the same 
+output for EVERY SINGLE ASSIGNMENT
 
 
 How do we prove two statements are NOT equivalent?
-
+Just need to find ONE case where the assignments cause different outputs
 
 
 
@@ -316,29 +324,34 @@ Name two statements that are equivalent to:
 
 Satisfiability.
 
-- definition: 
+- definition: A proposition is satisfiable if we can find a truth assignment 
+                that makes the statement true
 
 
 
 - what kind of statement is satisfiable? what kind is not?
+Contingent, tautology statements are satisfiable
 
+Contradictory statements are not 
 
 
 
 - is this satisfiable?
 
     (p ∨ ¬q) ∧ (q ∨ ¬r) ∧ (r ∨ ¬p)
+find ONE truth assignment that makes the statement true
 
-
-
+    p = T 
+    q = T 
+    r = T 
+    output = TRUE
 
 
 to show a statement is satisifiable: 
-
+    Find a single truth assignment 
 
 to show a statement is NOT satisfiable: 
-
-
+    Need a full truth table and see that no outputs are TRUE (contradictory)
 ////////////////////////////
 
 SAT
