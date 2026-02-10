@@ -1,14 +1,35 @@
 HW 3 due tonight
-
+              *           *
     #5: p ∨ q ∨ r ⊢ r ∨ q ∨ p
 
     What will the structure be?
+    p ∨ q ∨ r: Top-level is the rightmost OR 
+    (p ∨ q) ∨ r
 
+    Try OrE on premise
+    SubProof: assume (p || q)
+
+            goal: (r ∨ q) ∨ p
+            top-level is rightmost OR   
+            Could introduce Or if have (r || q) orr if I had (p)
+
+            //nested OrE
+            SubProof: assume p
+                OrI2((r ∨ q) ∨ p)
+
+            goal: (r ∨ q) ∨ p
+   
+            Subproof: assume q
+                OrI(r || q)
+                OrI((r ∨ q) ∨ p)
+
+                goal: (r ∨ q) ∨ p
+
+    SubProof: Assume (r)
+
+            goal: (r ∨ q) ∨ p
 
     How to build conclusion?
-
-
-
 
 
 Exam 1 is Thursday, February 12
@@ -59,6 +80,15 @@ Logika features/tips
 
 General proof strategy to this point
 
+1. List premises
+2. Break down any easier premises to get extra info
+
+3. look at the conclusion
+
+4. Consider if you will need OrE
+
+Note: Always think about ORDER OF OPERATIONS (), !, AND, OR, IMPLIES
+
 
 
 /////////////////////////
@@ -81,30 +111,45 @@ See Canvas announcement for list of topics.
 How to prove two propositional logic statements are 
 equivalent?
 
-    Approach 1:
+    Approach 1: Create two truth tables. For Every possible truth assignment, the two 
+                statements have the same exact output
 
     Approach 2:
+        deduciton with two proofs
 
 
 
 
 How to prove propositional logic statements are 
 NOT equivalent?
-
+Find ONEEE truth assignment that produces different outputs
 
 
 
 What is satisfiability? 
+    need ONE truth assignment where the statement outputs true
+    Tautology(all true) or contingent(some true)
+NOT satisfiable
+    need FULL truth tabl to show the statement always outputs false
+    Contradicory 
 
 
 
 - Determining whether an argument is valid or invalid
     (what is an argument?)
-    valid: 
+
+    premises, conclusion
+
+    valid: Every time all premises are true, the conclusion is also true
 
     how prove valid?
+    1) truth table with all premises and conclusion
+        looking for truth assigments that make all premises true, also make conclusion true
+
+    2) deduction ?? (NEED TO REVIEW)
 
     how prove invalid?
+    Just need one truth assignment where all the premises are true, but the conclusion is false
 
 
 /////////////////////////////////////////

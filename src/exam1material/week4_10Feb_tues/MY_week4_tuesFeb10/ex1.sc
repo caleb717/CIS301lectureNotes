@@ -9,6 +9,13 @@ import org.sireum.justification.natded.prop._
     ( a & b & c & d ) |- ( p | b | q | r )
       Proof(
         1 ( a & b & c & d ) by Premise,
+        2 (a & b & c)       by AndE1(1),
+        3 (a & b)           by AndE1(2),
+        4 (b)               by AndE2(3),
+        5 (p | b)           by OrI2(4),
+        6 (p | b | q)       by OrI1(5),
+        7 (p | b | q | r)   by OrI1(6)
+
 
     )
   )
