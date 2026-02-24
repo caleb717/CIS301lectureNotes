@@ -53,42 +53,67 @@ How do we approach proofs?
 1. Write out all the premises
 2. Extract all information from premises 
         AND statement?
+            Use AndE1 or AndE2
         IMPLIES statement?
+            Left side ofthe implies given: Use ImplyE
 
 
 3. Look at what you are trying to prove 
     (what do we look for in goal/conclusion?)
+    Look at top level operator, that guides approach
 
-    ∧ - 
+    ∧ - Try to prove each side, a separate proof for each side, then combine with AndI()
 
-    ∨ -   
+    ∨ - Prove one side of the OR statement, choose the easier side and prove it by itself, then use OrI1 or 2
+        See if you have an OR statement already, if you do try OrE to build conclusion.
 
-    → - 
+    → - Use ImplyI subproof where we assume the left side and try to reach the right side
 
-    ¬(something) - 
+    ¬(something) - Use NegI subproof, assume (something), then try to reach a negation (F) NegE
 
-    just a propositional atom? like p.
+    just a propositional atom? like p. - Look at all claims and see where the propositional atom    
+                                         shows up. If on the right side of an __>:, then prove left side for ImplyE.
+                                         OR statement? Use SubProofs to get OrE.
+                                         Try BottomE, Can we get a F?
+                                         Try proof by contradiction (PbC) subproof, assume !p, to get F.
 
 
-After each claim - 
+After each claim - Scan all available info including assumes, and see if you can extrct (AND, IMPLIES)
 
 
 
 Inside a subproof - 
     (What are the different subproofs?)
+    Goal at end:
+    OrE - Both subproofs need to end with the same claim (should be whatever I was trying to prove when I opened)
+    Imply I - The right side of the implies
+    PbC - F
+    NegI - F
 
-    --> when do we open a subproof?
+    After opening a subproof and wriing a gol, fidn top level operator of that goal.
+    Follow the sme pattern to nest a subproof to build on that goal.
+
+    --> when do we open a subproof? 
+        Don't open a subproof unless you know which subproof you're opening
 
     --> can we assume anything in a subproof? 
+        Can assume ANY one statement when opening a subproof 
+        Don't do it unless you hve a patern in mind though.
 
 
 
 
 Doesn't fit a pattern or doesn't work out from above?
-
+Might hit a brick wall, need to try a different strategy 
+    Do you have an OR as a claim? Try SubProofs with OrE 
+    If nothing is working, try PbC, Assume !(What you want), try to get a F
 
 
 When to use BottomE?
+    If you are using OrE and can't get your goal in one SubProof, but can get F,
+    use BottomE to conclue what yo uwnt.
+
+    DON'T use in PbC or NegI if you get F, even though you coulddd, it won't help finish.
 
 
 
@@ -131,27 +156,28 @@ SOUNDNESS and COMPLETENESS of natural deduction in
     "true": demonstrate an argument with truth tables
 
 
-SOUNDNESS: ??
+SOUNDNESS: ?? everything I can prove is actually true
 
 p ∧ q 
 --------
 p
 
 
-COMPLETENESS: ??
+COMPLETENESS: ?? I can prove everything that is true
+
+propositionl logic deduction is both sound and complete 
 
 
 
 
 
 --> what would it mean if a proof system was unsound?
+BADDD
 
 
 
 --> what would it mean if a proof system was incomplete?
-
-
-
+There are true arguments that we can't prove
 
 
 
@@ -184,9 +210,9 @@ A set is an unordered collection of elements
 
 ∈: is in, exists in
 
-    x ∈ A  means?
+    x ∈ A  means? means x exists in the set A
 
-    x ∉ A  means?
+    x ∉ A  means? means x doesn't exist in the set A
 
 
 
@@ -199,12 +225,12 @@ Example: A = {1,4,7,11,20}
 
 - Common sets in math:
 
-    ℕ: 
-    ℤ: 
-    ℚ: 
-    ℝ: 
-    ℂ: 
-    ∅: 
+    ℕ: natural numbers (integers starting with 1)
+    ℤ: integers (positve, negative, 0)
+    ℚ: rational numbers. I can write the numer as p/q where p and q are integers and q != 0
+    ℝ: real numbers
+    ℂ: complex numbers 
+    ∅: null set or empty set
 
 ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ
 
@@ -220,13 +246,18 @@ Set builder notation.
 
 {x: x ∈ ℕ, 5 ≤ x ≤ 10}
 
+== {5, 6, 7, 8, 9, 10}
 
 
 {k : k is a letter in "abracadabra"}
 
+== {a, b, c, d, r,}
+
 
 
 {x : x = 2k,  k ∈ ℕ}
+
+== {2, 4, 6, 8, 10, ...}
 
 
 
