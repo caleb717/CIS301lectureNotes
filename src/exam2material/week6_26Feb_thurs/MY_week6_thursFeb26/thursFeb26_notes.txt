@@ -1,3 +1,5 @@
+TESTING AGAIN MESSAGE
+
 HW 5 due Tuesday, March 3
 
 (this assignment does NOT use the Logika proof checker)
