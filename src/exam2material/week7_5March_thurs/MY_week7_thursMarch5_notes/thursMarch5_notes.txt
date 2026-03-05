@@ -11,9 +11,11 @@ HW 5 comments:
 
 
 7 (a). If A ⋃ C = B ⋃ C, must A = B?
+A = {1,3}
+B = {2,3}
+C = {3}
 
-
-
+Not a counterexample because A ⋃ C != B ⋃ C
 
 7 (b). If A ⋂ C = B ⋂ C, must A = B?
 
@@ -33,6 +35,9 @@ Arguments in predicate logic
 Set of premises
 Conclusion
 
+in propositionl logic, valid when:
+    every truth assignment that makes each premise true, also makes conclusion true
+
 Argument is VALID in general: regardless of domain,
     whenever all the premises are true,
     then the conclusion is also true
@@ -49,26 +54,37 @@ Examples -- are the following arguments valid?
 Premises: ∀ x (P(x) → Q(x)), ∃ x P(x)
 Conclusion: ∃ x Q(x)
 
-Valid or not? 
+Translation: Everything that is a P is also a Q
+             There's something in my domain that is a p
 
+Conclusion:  There is something in my domain that's Q
+
+Valid or not? 
+VALID
 
 ///
 
 Premises: ∀ x P(x)
 Conclusion: ∃ x P(x)
 
+Translation: Everything in my domain is P
+Conclusion: There is something in my domain that's a P
+
 Valid or not?
+NOT VALID, if the domain is empty 
 
 /////////////////////////////////
 
-soundness ?
+soundness: Everything we can prove with out proof system is actually true
 
 
-completeness ?
+completeness: We can use our proof system to prove everything that is true
 
 
-predicate logic?
+predicate logic? 
 
+will be incomplete
+There will be true arguments in some domains that we can't prove because they're not true in every domain.
 /////////////////////////////////
 
 Proofs in predicate logic.
@@ -205,12 +221,12 @@ First: consider these two statements:
 
 
 are they equivalent?
-    ∀ x (P(x) ⋀ Q(x))  - translation?
+    ∀ x (P(x) ⋀ Q(x))  - translation? Everything in my domain is P and Q
 
 
 
 
-    (∀ x P(x)) ⋀ (∀ x Q(x)) - translation?
+    (∀ x P(x)) ⋀ (∀ x Q(x)) - translation?  Everything in my domain is P and everyting in my domain is Q
 
 
 
@@ -243,7 +259,7 @@ Rule definition:
                 P(a)
             )),
 AllI[T] : -------------------------------
-                 ∀ ((x: T) => P(x))
+                 ∀ ((x: T) => P(x))  
 
 
 //"a" is an unused, "fresh" individual
@@ -256,7 +272,7 @@ Rule syntax:
     ...
     P(a)
 )),
-10 ( ∀ ((x: T) => P(x)) ) by ???
+10 ( ∀ ((x: T) => P(x)) ) by AllI[T](4)
 
 
 //a could be any (fresh) individual name
@@ -282,6 +298,12 @@ in-class quiz
 Are these statements equivalent?
 
 ∀ x (P(x) ⋁ Q(x))           (∀ x P(x)) ⋁ (∀ x Q(x))
+
+could Prove:
+
+start with: (∀ x P(x)) ⋁ (∀ x Q(x))
+
+conclusion: ∀ x (P(x) ⋁ Q(x))    
 
 
 //////////////////////////////////////////
