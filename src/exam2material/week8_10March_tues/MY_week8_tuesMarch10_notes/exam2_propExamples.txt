@@ -13,3 +13,9 @@ p → (q ∧ r), (q → ¬s) ⊢ p → ¬s
 
 
 r → ¬(p ∧ q), w → (r → q) ⊢ w → ¬(p ∧ r) 
+
+
+
+EXTRA: Negate 
+
+Exists X (K(x) )

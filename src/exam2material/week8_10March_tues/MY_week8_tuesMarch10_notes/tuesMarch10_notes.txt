@@ -22,8 +22,8 @@ I will use parentheses to be clear what precedence to use with quantifiers
 
 Top-level operators for:
 
-(∀ x P(x)) ⋀ (∀ x Q(x))
-∀ x (P(x) ⋁ Q(x))
+(∀ x P(x)) ⋀ (∀ x Q(x))   == AND
+∀ x (P(x) ⋁ Q(x))         == ∀
 
 
 ///////////////////////////////
@@ -37,15 +37,28 @@ Today:
 Reminder:
 
 AllE - when can we use?
-
+        a for all statement
+        individual (either parameter to proof fuction OR introduced in a subproof)
 
 AllI - when do we use? idea?
+        When we want to create a "For All" statement
+        Need to have a subproof - name a random individual in my dommain at beginning 
+                                - Can't be someone I've used before 
+                                -By End: Whatever statement I want for everyone
+                                         be able to mke that statement about my random individual
+        Right after subproof: Introduce same statemet with aa for all
+
+
 
 ////////////////////////
 
 Bigger example: allBig.sc
 
 ////////////////////////
+
+ExistsI - introducing a there exists statement
+        If i have a statement about an indvidiaul in my domain, 
+        can always use ExsitsI to create a "there exists" statement
 
 
 Putting things together: bothQuant.sc
