@@ -13,9 +13,45 @@ var max: Z = 0
 
 if (a > b) {
   max = a
+
+Deduce(
+  1 ( a > b) by Premise,
+  2 (max == a) by Premise,
+  3 ( max >= a) by Algebra*(2),
+  4 (max >= b) by Algebra*(1, 2),
+
+
+  //goal: max >= b, max >= b
+)
+
 } else {
   max = b
+
+  Deduce(
+    1 (!(a > b)) by Premise, //Condition is not true
+    2 ( max == b) by Premise,
+
+    3 ( max >= b) by Algebra*(2),
+    4 (a <= b) by Algebra*(1),
+
+    5 ( max >= a) by Algebra*(3,4),
+
+  //goal: max >= b, max >= b
+
+  )
 }
 
+Deduce (
+  1 (max == a | max == b) by Premise, //LHS true in if, RHS true in else
+  2 (max >= a) by Premise, //true in both branches
+  3 (max >= b ) by Premise, //true in both branches 
+
+  //Need: max >= a
+  //Need: max >= b
+  //Need max == a | max == b
+)
 
 //how can we assert that we've found the max?
+assert(max >= a)
+assert(max >= b)
+assert(max == a | max == b)
